@@ -6,8 +6,8 @@ sudo apt install -qq git git-lfs htop python3.9
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
-#!/bin/fish
+#!/usr/local/bin/fish
 echo "Installing additional packages"
-brew bundle install -q --file=Brewfile
+#brew bundle install -q --file=Brewfile
 
 {{ end -}}
