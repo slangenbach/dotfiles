@@ -1,0 +1,4 @@
+[gpg]
+	program = /usr/local/bin/
+[credential]
+	helper = osxkeychain

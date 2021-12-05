@@ -1,0 +1,41 @@
+[user]
+	name = Stefan Langenbach
+	email = stefan@langenbach.online
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = code --wait
+	autocrlf = input
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[commit]
+	gpgsign = false
+	template = ~/.gitmessage
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[includeIf "gitdir:/home/"]
+	path = ~/.gitconfig-linux
+[includeIf "gitdir:/Users/"]
+	path = ~/.gitconfig-macos
+[includeIf "gitdir:~/dev/work/"]
+	path = ~/.gitconfig-work
+[includeIf "gitdir:~/dev/personal/"]
+	path = ~/.gitconfig-personal
+[pull]
+	rebase = true
