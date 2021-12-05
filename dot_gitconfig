@@ -1,6 +1,5 @@
 [user]
 	name = Stefan Langenbach
-	email = stefan@langenbach.online
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
@@ -33,9 +32,13 @@
 	path = ~/.gitconfig-linux
 [includeIf "gitdir:/Users/"]
 	path = ~/.gitconfig-macos
+[includeIf "gitdir/i:C:/Users/"]
+	path = ~/.gitconfig-windows
 [includeIf "gitdir:~/dev/work/"]
 	path = ~/.gitconfig-work
 [includeIf "gitdir:~/dev/personal/"]
 	path = ~/.gitconfig-personal
+[includeIf "gitdir:~/.local/share/chezmoi/"]
+	path = ~/.gitconfig-personal
 [pull]
-	rebase = true
+	rebase = false

@@ -1,12 +1,12 @@
 # Title
 # Start upper case, use imperative mood, don't end with a period
+# Include issue tracker reference if available, i.e.: [JIRA-1337]
 # No more than 50 chars. #### 50 chars is here: #
 
 # Blank line between title and body.
 
 # Body
 # Explain what and why, **not* *how* 
-# Include issue tracker reference if available, i.e.: Resolves: #1337
 # Wrap at 72 chars. ################################## which is here: #
 
 # Based on [How to write a Git commit message](https://chris.beams.io/posts/git-commit/)

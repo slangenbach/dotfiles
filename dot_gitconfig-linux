@@ -1,7 +1,2 @@
-[gpg]
-    program = /usr/bin/gpg
 [credential]
     helper = store
-[http]
-	proxy = http://127.0.0.1:3128
-	sslCAInfo = ~/zscaler.pem
