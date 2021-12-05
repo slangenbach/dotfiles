@@ -2,7 +2,7 @@
 
 #!/bin/fish
 echo "Installing additional packages"
-sudo apt install -qq git git-lfs htop python3.9 
+sudo apt install -q -y git git-lfs htop python3.9 
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
