@@ -4,15 +4,15 @@
 echo "Bootstrapping setup for Linux"
 # install latest fish shell
 echo "Installing fish shell"
-sudo apt-add-repository -y ppa:fish-shell/release-3
-sudo apt -q -y update
-sudo apt install -q -y fish
+sudo apt-add-repository -y ppa:fish-shell/release-3 
+sudo apt -q -y update >/dev/null
+sudo apt install -q -y fish 
 # set fish as default shell
 echo "Setting fish as default shell"
 sudo chsh -s $(which fish) $USER
 # upgrade existing packages
 echo "Upgrading existing packages"
-sudo apt -q -y upgrade
+sudo apt -q -y upgrade >/dev/null
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
