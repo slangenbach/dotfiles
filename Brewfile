@@ -7,6 +7,7 @@ brew "python@3.9"
 brew "awscli"
 brew "aws-cdk"
 brew "bat"
+brew "brave-browser"
 brew "chezmoi"
 brew "exa"
 brew "git"
@@ -36,3 +37,4 @@ mas "Outbank", id: 1094255754
 mas "Pages", id: 409201541
 mas "Pixelmator", id: 407963104
 mas "Pocket", id: 568494494
+mas "Keynote", id: 409183694
