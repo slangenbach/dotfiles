@@ -1,0 +1,17 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/bin/fish
+set fish_greeting
+
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+#!/bin/fish
+set -Ux REQUESTS_CA_BUNDLE /etc/ssl/certs/ca-certificates
+
+{{   end }}
+
+{{ else if eq .chezmoi.os "darwin" -}}
+
+#!/usr/local/bin/fish
+set fish_greeting
+
+{{ end -}}
