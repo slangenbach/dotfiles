@@ -4,6 +4,10 @@
 echo "Installing additional packages"
 sudo apt install -q -y git git-lfs htop python3.9 python3.9-venv unzip >/dev/null
 
+# Poetry
+curl -sSL https://install.python-poetry.org | POETRY_HOME=/usr/local/bin/poetry python3 -
+
+# AWS CLI
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip -q awscliv2.zip && \
     sudo ./aws/install && \
