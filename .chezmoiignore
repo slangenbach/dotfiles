@@ -1,5 +1,6 @@
 README.md
 LICENSE
+config.fish
 
 {{ if eq .chezmoi.os "linux" -}}
 Brewfile
