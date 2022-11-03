@@ -15,5 +15,3 @@ Install chezmoi and apply dotfiles
 Running the aforementioned command will:
 * Install the latest version of chezmoi
 * Apply dotfiles inside this repository
-* Run a script to bootstrap setup on Linux or macOS (see `run_once_01_bootstrap.sh.tmpl` for details)
-* Install additional packages via apt or brew
