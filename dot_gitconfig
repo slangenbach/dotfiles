@@ -23,6 +23,7 @@
 [color]
 	ui = auto
 [alias]
+	amend = commit --amend
 	co = checkout
 	ci = commit
 	br = branch
