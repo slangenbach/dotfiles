@@ -10,6 +10,14 @@ sso_role_name = AWSAdministratorAccess
 region = eu-central-1
 output = yaml-stream
 
+[profile sm-dev]
+sso_start_url = https://covestro.awsapps.com/start/
+sso_region = eu-west-1
+sso_account_id = 021625985488
+sso_role_name = rolegreen-021625985488
+region = eu-central-1
+output = yaml-stream
+
 [profile sm-test]
 sso_start_url = https://covestro.awsapps.com/start/
 sso_region = eu-west-1
@@ -18,11 +26,11 @@ sso_role_name = AWSAdministratorAccess
 region = eu-central-1
 output = yaml-stream
 
-[profile sm-dev]
+[profile sm-prod]
 sso_start_url = https://covestro.awsapps.com/start/
 sso_region = eu-west-1
-sso_account_id = 021625985488
-sso_role_name = rolegreen-021625985488
+sso_account_id = 385785638705
+sso_role_name = rolegreen-385785638705
 region = eu-central-1
 output = yaml-stream
 
