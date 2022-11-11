@@ -34,7 +34,7 @@ sso_role_name = rolegreen-385785638705
 region = eu-central-1
 output = yaml-stream
 
-[profile data-lake]
+[profile datalake]
 sso_start_url = https://covestro.awsapps.com/start/
 sso_region = eu-west-1
 sso_account_id = 368958901492
