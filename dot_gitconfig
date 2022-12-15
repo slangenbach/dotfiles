@@ -43,3 +43,6 @@
 	path = ~/.gitconfig-personal
 [pull]
 	rebase = false
+[push]
+	autosetupremote = true
+
