@@ -1,27 +1,41 @@
 [user]
-	name = Stefan Langenbach
+	name = {{ .chezmoi.name | quote }}
+
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
 	autocrlf = input
+
 [diff]
 	tool = vscode
+
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
+
 [merge]
 	tool = vscode
+
 [mergetool "vscode"]
 	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-[commit]
-	gpgsign = false
-	template = ~/.gitmessage
+
+[pull]
+	rebase = false
+
+[push]
+	autosetupremote = true
+
 [color]
 	ui = auto
+
+[commit]
+	template = ~/.gitmessage
+
 [alias]
 	amend = commit --amend
 	co = checkout
@@ -29,20 +43,25 @@
 	br = branch
 	st = status
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-[includeIf "gitdir:/home/"]
-	path = ~/.gitconfig-linux
-[includeIf "gitdir:/Users/"]
-	path = ~/.gitconfig-macos
-[includeIf "gitdir/i:C:/Users/"]
-	path = ~/.gitconfig-windows
 [includeIf "gitdir:~/dev/work/"]
 	path = ~/.gitconfig-work
 [includeIf "gitdir:~/dev/personal/"]
 	path = ~/.gitconfig-personal
 [includeIf "gitdir:~/.local/share/chezmoi/"]
 	path = ~/.gitconfig-personal
-[pull]
-	rebase = false
-[push]
-	autosetupremote = true
 
+[credential]
+{{ if eq .chezmoi.os "windows" }}
+	helper = wincred
+{{ else if .chezmoi.os "linux }}
+	helper = store
+{{ end }}
+
+{{ if eq .chezmoi.os "darwin" }}
+[credential "https://github.com"]
+	username = slangenbach
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+{{ end }}

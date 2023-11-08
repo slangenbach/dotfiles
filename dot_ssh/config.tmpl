@@ -1,11 +1,12 @@
-Host ws
+{{ if eq .chezmoi.setting "work" }}
+    Host ws
     HostName i-0ec66b47057ff984c
     User ec2-user
     MACs hmac-sha2-512-etm@openssh.com
-{{ if eq .chezmoi.os "darwin" }}
+    {{ if eq .chezmoi.os "windows" }}
     IdentityFile C:/Users/CVMYW/.ssh/sl-ws-ed25519
     ProxyCommand C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p --profile sm-dev"
-{{ else if eq .chezmoi.os "linux" -}}
+    {{ else if eq .chezmoi.os "linux" -}}
     IdentityFile ~/.ssh/sl-ws-ed25519
     ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p' --profile sm-dev"
-{{ end -}}
+    {{ end }}
