@@ -3,11 +3,11 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 [data]
     name = "Stefan Langenbach"
-    personal_email = stefan@langenbach.online
-    work_email = stefan.langenbach@covestro.com
+    personal_email = "stefan@langenbach.online"
+    work_email = "stefan.langenbach@covestro.com"
     codespaces = {{ $codespaces }}
 {{- if $codespaces }}
     setting = "personal"
 {{- else }}
-    {{- $setting := promptStringOnce . "setting" "Setting (personal or work)" -}}
+    setting = {{ promptStringOnce . "setting" "Personal or work" | quote }}
 {{- end }}
