@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.setting "work" }}
+{{ if eq .setting "work" }}
     Host ws
     HostName i-0ec66b47057ff984c
     User ec2-user
@@ -10,3 +10,4 @@
     IdentityFile ~/.ssh/sl-ws-ed25519
     ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p' --profile sm-dev"
     {{ end }}
+{{ end }}

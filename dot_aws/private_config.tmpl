@@ -2,8 +2,7 @@
 region = eu-central-1
 output = yaml-stream
 
-{{ if eq .chezmoi.setting "work" }}
-
+{{ if eq .setting "work" }}
 [profile legacy]
 sso_start_url = https://covestro.awsapps.com/start
 sso_region = eu-west-1
@@ -43,5 +42,4 @@ sso_account_id = 368958901492
 sso_role_name = rolered-368958901492
 region = eu-central-1
 output = yaml-stream
-
 {{ end }}

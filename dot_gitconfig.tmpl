@@ -1,5 +1,5 @@
 [user]
-	name = {{ .chezmoi.name | quote }}
+	name = {{ .name }}
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -50,10 +50,11 @@
 [includeIf "gitdir:~/.local/share/chezmoi/"]
 	path = ~/.gitconfig-personal
 
-[credential]
 {{ if eq .chezmoi.os "windows" }}
+[credential]
 	helper = wincred
-{{ else if .chezmoi.os "linux }}
+{{ else if eq .chezmoi.os "linux" }}
+[credential]
 	helper = store
 {{ end }}
 
