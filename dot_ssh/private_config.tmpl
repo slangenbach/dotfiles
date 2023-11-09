@@ -8,7 +8,7 @@ Host ws
     ProxyCommand C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p --profile cap_sm_dev"
     {{ else if eq .chezmoi.os "linux" -}}
     IdentityFile ~/.ssh/sl-workstation
-    ProxyCommand aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p --profile cap_sm_dev"
+    ProxyCommand aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p --profile cap_sm_dev
     {{ end }}
 Host jetson
     Hostname 10.162.181.63
