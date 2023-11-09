@@ -30,6 +30,9 @@
 [push]
 	autosetupremote = true
 
+[init]
+	defaultbranch = main
+
 [color]
 	ui = auto
 
@@ -50,13 +53,14 @@
 [includeIf "gitdir:~/.local/share/chezmoi/"]
 	path = ~/.gitconfig-personal
 
-{{ if eq .chezmoi.os "windows" }}
 [credential]
+{{ if eq .chezmoi.os "windows" -}}
 	helper = wincred
-{{ else if eq .chezmoi.os "linux" }}
-[credential]
+{{ else if eq .chezmoi.os "linux" -}}
 	helper = store
-{{ end }}
+{{ else if eq .chezmoi.os "darwin" -}}
+	helper = osxkeychain
+{{ end -}}
 
 {{ if eq .chezmoi.os "darwin" }}
 [credential "https://github.com"]
@@ -65,4 +69,5 @@
 
 [credential "https://gist.github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
-{{ end }}
+
+{{ end -}}
