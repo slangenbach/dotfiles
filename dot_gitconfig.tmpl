@@ -57,17 +57,18 @@
 {{ if eq .chezmoi.os "windows" -}}
 	helper = wincred
 {{ else if eq .chezmoi.os "linux" -}}
+	{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+	helper = /mnt/c/Users/CVMYW/AppData/Local/Programs/Git/mingw64/bin/git-credential-manager.exe
+	{{ else }}
 	helper = store
+	{{ end }}
 {{ else if eq .chezmoi.os "darwin" -}}
 	helper = osxkeychain
-{{ end -}}
 
-{{ if eq .chezmoi.os "darwin" }}
 [credential "https://github.com"]
 	username = slangenbach
 	helper = !/opt/homebrew/bin/gh auth git-credential
 
 [credential "https://gist.github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
-
 {{ end -}}
