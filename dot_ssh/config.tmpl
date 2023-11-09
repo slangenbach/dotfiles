@@ -1,13 +1,17 @@
 {{ if eq .setting "work" }}
-    Host ws
-    HostName i-0ec66b47057ff984c
-    User ec2-user
+Host ws
+    HostName i-04b90aeb8cb86504c
+    User ubuntu
     MACs hmac-sha2-512-etm@openssh.com
-    {{ if eq .chezmoi.os "windows" }}
-    IdentityFile C:/Users/CVMYW/.ssh/sl-ws-ed25519
-    ProxyCommand C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p --profile sm-dev"
+    {{ if eq .chezmoi.os "windows" -}}
+    IdentityFile C:/Users/CVMYW/.ssh/sl-workstation
+    ProxyCommand C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p --profile cap_sm_dev"
     {{ else if eq .chezmoi.os "linux" -}}
     IdentityFile ~/.ssh/sl-ws-ed25519
     ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p' --profile sm-dev"
     {{ end }}
+Host jetson
+    Hostname 10.162.181.63
+    User jetson
+    IdentityFile C:\Users\CVMYW\.ssh\jetson
 {{ end }}
