@@ -11,3 +11,7 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 {{- else }}
     setting = {{ promptStringOnce . "setting" "Personal or work" | quote }}
 {{- end }}
+
+[edit]
+    command = "code"
+    args = ["--wait"]
