@@ -37,8 +37,19 @@
 [color]
 	ui = auto
 
+[gpg]
+	format = ssh
+
+{{ if (and (eq .setting "personal") (not .codespaces)) -}}
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{- end }}
+
 [commit]
 	template = ~/.gitmessage
+{{- if (and (eq .setting "personal") (not .codespaces)) }}
+	gpgsign = true
+{{- end }}
 
 [alias]
 	amend = commit --amend

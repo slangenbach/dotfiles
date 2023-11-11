@@ -1,2 +1,5 @@
 [user]
     email = {{ .personal_email }}
+{{- if (and (eq .setting "personal") (not .codespaces)) }}
+    signingkey = {{ .personal_signing_key }}
+{{ end -}}
