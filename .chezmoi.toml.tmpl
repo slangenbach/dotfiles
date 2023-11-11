@@ -9,7 +9,7 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 {{- if $codespaces }}
     setting = "personal"
 {{- else }}
-    setting = {{ promptStringOnce . "setting" "Personal or work" | quote }}
+    setting = {{ promptStringOnce . "setting" "Personal or Work" | lower | quote }}
 {{- end }}
 
 [edit]
