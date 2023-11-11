@@ -1,4 +1,7 @@
-{{ if eq .setting "work" }}
+{{ if (and (eq .setting "personal") (not .codespaces)) -}}
+Host *
+    IdentityAgent ~/.1password/agent.sock
+{{ else if eq .setting "work" }}
 Host ws
     HostName i-04b90aeb8cb86504c
     User ubuntu
@@ -18,4 +21,4 @@ Host jetson
     {{ else if eq .chezmoi.os "linux" -}}
     IdentityFile /home/stefan/.ssh/jetson
     {{ end -}}
-{{ end }}
+{{ end -}}
