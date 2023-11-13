@@ -1,42 +1,55 @@
+{{ if eq .setting "personal" }}
 [default]
 region = eu-central-1
 output = yaml-stream
 
-{{ if eq .setting "work" -}}
-
+{{ else if eq .setting "work" -}}
 [sso-session base]
 sso_start_url = https://covestro.awsapps.com/start/
 sso_region = eu-west-1
 sso_registration_scopes = sso:account:access
-sso_role_name = AWSAdministratorAccess
-region = eu-central-1
-output = yaml-stream
 
 [profile cova_dev]
 sso_session = base
 sso_account_id = 730136787253
+sso_role_name = AWSAdministratorAccess
+region = eu-central-1
+output = yaml-stream
 
 [profile cova_prod]
 sso_session = base
 sso_account_id = 284939943439
+sso_role_name = AWSAdministratorAccess
+region = eu-central-1
+output = yaml-stream
 
 [profile cova_auto]
 sso_session = base
 sso_account_id = 241624340025
+sso_role_name = AWSAdministratorAccess
+region = eu-central-1
+output = yaml-stream
 
 [profile gen_ai]
 sso_session = base
 sso_account_id = 126225155318
+sso_role_name = AWSAdministratorAccess
+region = eu-central-1
+output = yaml-stream
 
 [profile bedrock]
 sso_session = base
 sso_account_id = 126225155318
+sso_role_name = AWSAdministratorAccess
 region = us-east-1
+output = yaml-stream
 
-[profile cap_prod_datalake]
+[profile cap_data_lake_prod]
 sso_session = base
 sso_account_id = 368958901492
 sso_role_name = rolered-368958901492
+region = eu-central-1
+output = yaml-stream
 
 [profile cap_data_lake_prod_caf100]
 source_profile = cap_data_lake_prod
@@ -54,18 +67,27 @@ role_arn = aarn:aws:iam::368958901492:role/cap-project-role-ship
 sso_session = base
 sso_account_id = 385785638705
 sso_role_name = rolegreen-385785638705
+region = eu-central-1
+output = yaml-stream
 
 [profile cap_sm_qa]
 sso_session = base
 sso_account_id = 614627342762
+sso_role_name = AWSAdministratorAccess
+region = eu-central-1
+output = yaml-stream
 
 [profile cap_sm_dev]
 sso_session = base
 sso_account_id = 021625985488
 sso_role_name = rolegreen-021625985488
+region = eu-central-1
+output = yaml-stream
 
 [profile aa_ci_cd]
 sso_session = base
 sso_account_id = 558431817150
-
+sso_role_name = AWSAdministratorAccess
+region = eu-central-1
+output = yaml-stream
 {{ end -}}
