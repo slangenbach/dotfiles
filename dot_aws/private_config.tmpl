@@ -1,9 +1,9 @@
+{{ if eq .setting "personal" }}
 [default]
 region = eu-central-1
 output = yaml-stream
 
-{{ if eq .setting "work" -}}
-
+{{ else if eq .setting "work" -}}
 [sso-session base]
 sso_start_url = https://covestro.awsapps.com/start/
 sso_region = eu-west-1
@@ -67,5 +67,4 @@ sso_role_name = rolegreen-021625985488
 [profile aa_ci_cd]
 sso_session = base
 sso_account_id = 558431817150
-
 {{ end -}}
