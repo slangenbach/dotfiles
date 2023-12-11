@@ -3,7 +3,7 @@ Host *
     IdentityAgent ~/.1password/agent.sock
 {{ else if eq .setting "work" }}
 Host ws
-    HostName i-04b90aeb8cb86504c
+    HostName i-028a6b4ef4daa162a
     User ubuntu
     MACs hmac-sha2-512-etm@openssh.com
     {{ if eq .chezmoi.os "windows" -}}
