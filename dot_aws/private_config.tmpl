@@ -103,7 +103,15 @@ role_arn = arn:aws:iam::368958901492:role/cap-project-role-lift
 
 [profile cap_data_lake_prod_ship]
 source_profile = cap_data_lake_prod
-role_arn = aarn:aws:iam::368958901492:role/cap-project-role-ship
+role_arn = arn:aws:iam::368958901492:role/cap-project-role-ship
+
+[profile cap_data_lake_prod_idzy]
+source_profile = cap_data_lake_prod
+role_arn = arn:aws:iam::368958901492:role/cap-project-role-idzy
+
+[profile cap_data_lake_prod_smm]
+source_profile = cap_data_lake_prod
+role_arn = arn:aws:iam::368958901492:role/cap-project-role-smm
 
 [profile cap_sm_prod]
 sso_session = base
