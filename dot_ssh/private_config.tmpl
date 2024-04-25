@@ -1,6 +1,6 @@
 {{ if (and (eq .setting "personal") (not .codespaces)) -}}
 Host *
-    IdentityAgent ~/.1password/agent.sock
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 {{ else if eq .setting "work" }}
 Host ws
     HostName i-028a6b4ef4daa162a
